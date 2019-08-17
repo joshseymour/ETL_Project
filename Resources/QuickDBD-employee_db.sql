@@ -1,22 +1,24 @@
-﻿-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
+-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
 -- Link to schema: https://app.quickdatabasediagrams.com/#/d/ECVqcQ
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
+drop table player 
 
 CREATE TABLE "player" (
-    "Id" int   NOT NULL,
+	id serial Primary Key,
     "Player" varchar   NOT NULL,
-    "Start_Year" int   NOT NULL,
-    "End_Year" int   NOT NULL,
-    "Position" varchar   NOT NULL,
-    "Height" int   NOT NULL,
-    "Weight" int   NOT NULL,
-    "Birthday" date   NOT NULL,
-    "University" varchar   NOT NULL,
-    CONSTRAINT "pk_player" PRIMARY KEY (
-        "Id"
-     )
+    "Start_Year" int,
+    "End_Year" int,
+    "Position" varchar,
+    "Height" int,
+    "Weight" int,
+    "Birthday" date,
+    "University" varchar
 );
+
+select * from player
+
+drop table season_stats 
 
 CREATE TABLE "season_stats" (
     "ID" int   NOT NULL,
@@ -58,19 +60,24 @@ CREATE TABLE "season_stats" (
     "PTS" int   NOT NULL
 );
 
+drop table shot_stats
+
 CREATE TABLE "shot_stats" (
     "Player" varchar   NOT NULL,
     "Shot_Number" int   NOT NULL,
-    "Closest_Defender" varchar   NOT NULL,
+    "Closest_Defender" varchar,
     "Closest_Defender_Distance" int   NOT NULL,
     "Game_Clock" time   NOT NULL,
-    "Shot_Clock" int   NOT NULL,
+    "Shot_Clock" int,
     "Dribbles" int   NOT NULL,
     "Touch_Time" int   NOT NULL,
     "Shot_Distance" int   NOT NULL,
     "Shot_Type" int   NOT NULL,
     "Shot_Result" varchar   NOT NULL
 );
+
+select * from shot_stats
+select Shot_Number from shot_stats
 
 CREATE TABLE "college" (
     "college_id" int   NOT NULL,
